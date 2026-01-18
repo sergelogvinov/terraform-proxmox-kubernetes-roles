@@ -15,6 +15,8 @@ This Terraform module allows you to manage Proxmox roles for projects:
 ```hcl
 module "roles" {
   source = "github.com/sergelogvinov/terraform-proxmox-kubernetes-roles"
+
+  tokens = true
 }
 ```
 
@@ -43,6 +45,10 @@ No modules.
 | [proxmox_virtual_environment_role.ccm](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/resources/virtual_environment_role) | resource |
 | [proxmox_virtual_environment_role.csi](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/resources/virtual_environment_role) | resource |
 | [proxmox_virtual_environment_role.karpenter](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/resources/virtual_environment_role) | resource |
+| [proxmox_virtual_environment_user.kubernetes](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/resources/virtual_environment_user) | resource |
+| [proxmox_virtual_environment_user_token.ccm](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/resources/virtual_environment_user_token) | resource |
+| [proxmox_virtual_environment_user_token.csi](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/resources/virtual_environment_user_token) | resource |
+| [proxmox_virtual_environment_user_token.karpenter](https://registry.terraform.io/providers/bpg/proxmox/latest/docs/resources/virtual_environment_user_token) | resource |
 
 ## Inputs
 
@@ -58,12 +64,20 @@ No modules.
 | <a name="input_karpenter_feature_pools"></a> [karpenter\_feature\_pools](#input\_karpenter\_feature\_pools) | Enable pool management feature for Karpenter for templated VMs | `bool` | `false` | no |
 | <a name="input_karpenter_feature_resource_mapping"></a> [karpenter\_feature\_resource\_mapping](#input\_karpenter\_feature\_resource\_mapping) | Enable resource mapping feature for Karpenter | `bool` | `false` | no |
 | <a name="input_karpenter_role_id"></a> [karpenter\_role\_id](#input\_karpenter\_role\_id) | Role ID for the Kubernetes Karpenter | `string` | `"Kubernetes-Karpenter"` | no |
+| <a name="input_tokens"></a> [tokens](#input\_tokens) | Create user tokens for the roles | `bool` | `false` | no |
+| <a name="input_username"></a> [username](#input\_username) | Proxmox user to assign the roles to | `string` | `"kubernetes"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_ccm_role_id"></a> [ccm\_role\_id](#output\_ccm\_role\_id) | Role ID of the Kubernetes CCM |
+| <a name="output_ccm_token_id"></a> [ccm\_token\_id](#output\_ccm\_token\_id) | Token ID of the Kubernetes CCM |
+| <a name="output_ccm_token_secret"></a> [ccm\_token\_secret](#output\_ccm\_token\_secret) | Token secret of the Kubernetes CCM |
 | <a name="output_csi_role_id"></a> [csi\_role\_id](#output\_csi\_role\_id) | Role ID of the Kubernetes CSI |
+| <a name="output_csi_token_id"></a> [csi\_token\_id](#output\_csi\_token\_id) | Token ID of the Kubernetes CSI |
+| <a name="output_csi_token_secret"></a> [csi\_token\_secret](#output\_csi\_token\_secret) | Token secret of the Kubernetes CSI |
 | <a name="output_karpenter_role_id"></a> [karpenter\_role\_id](#output\_karpenter\_role\_id) | Role ID of the Kubernetes Karpenter |
+| <a name="output_karpenter_token_id"></a> [karpenter\_token\_id](#output\_karpenter\_token\_id) | Token ID of the Kubernetes Karpenter |
+| <a name="output_karpenter_token_secret"></a> [karpenter\_token\_secret](#output\_karpenter\_token\_secret) | Token secret of the Kubernetes Karpenter |
 <!-- END_TF_DOCS -->

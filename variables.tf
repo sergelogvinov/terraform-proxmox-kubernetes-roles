@@ -1,4 +1,16 @@
 
+variable "username" {
+  description = "Proxmox user to assign the roles to"
+  type        = string
+  default     = "kubernetes"
+}
+
+variable "tokens" {
+  description = "Create user tokens for the roles"
+  type        = bool
+  default     = false
+}
+
 variable "ccm" {
   description = "Enable Kubernetes Cloud Controller Manager (CCM) role creation"
   type        = bool

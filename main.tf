@@ -1,4 +1,6 @@
 
+# data "proxmox_virtual_environment_version" "cluster" {}
+
 locals {
 
   ccm = sort(flatten([
